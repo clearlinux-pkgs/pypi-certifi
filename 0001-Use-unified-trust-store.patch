@@ -21,18 +21,19 @@ index 6077b5ff84d2..24ad57286b32 100644
 --- a/MANIFEST.in
 +++ b/MANIFEST.in
 @@ -1 +1 @@
--include MANIFEST.in README.rst LICENSE certifi/cacert.pem
+-include MANIFEST.in README.rst LICENSE certifi/cacert.pem certifi/py.typed
 +include MANIFEST.in README.rst LICENSE
 diff --git a/certifi.egg-info/SOURCES.txt b/certifi.egg-info/SOURCES.txt
 index 04773eaf9fa1..f5b8172f4dfe 100644
 --- a/certifi.egg-info/SOURCES.txt
 +++ b/certifi.egg-info/SOURCES.txt
-@@ -5,10 +5,9 @@ setup.cfg
+@@ -5,11 +5,9 @@ setup.cfg
  setup.py
  certifi/__init__.py
  certifi/__main__.py
 -certifi/cacert.pem
  certifi/core.py
+-certifi/py.typed
  certifi.egg-info/PKG-INFO
  certifi.egg-info/SOURCES.txt
  certifi.egg-info/dependency_links.txt
@@ -61,7 +62,7 @@ index f6e3d103ebfe..78b3d60b0f51 100755
          'certifi',
      ],
      package_dir={'certifi': 'certifi'},
--    package_data={'certifi': ['*.pem']},
+-    package_data={'certifi': ['*.pem', 'py.typed']},
      # data_files=[('certifi', ['certifi/cacert.pem'])],
      include_package_data=True,
      zip_safe=False,
