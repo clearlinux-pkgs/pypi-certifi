@@ -1,6 +1,6 @@
-From 3595080cd30d1fa7024d02ef6dc54056358914d3 Mon Sep 17 00:00:00 2001
-From: George T Kramer <george.t.kramer@intel.com>
-Date: Thu, 2 Aug 2018 14:43:28 -0700
+From c81a929e61b36d2ff740e6aef77080ea066a4646 Mon Sep 17 00:00:00 2001
+From: William Douglas <william.douglas@intel.com>
+Date: Mon, 4 Dec 2023 12:40:17 -0800
 Subject: [PATCH] Use unified trust store
 
 Expose user-managed CA certs to applications that require the certifi
@@ -8,26 +8,29 @@ package by using the unified trust store.  This has a bonus side-effect
 of no longer distributing a copy of the Mozilla CA certs and instead
 relying on those distributed as a part of the ca-certs package.
 
-Signed-off-by: Patrick McCarty <patrick.mccarty@intel.com>
+Signed-off-by: William Douglas <william.douglas@intel.com>
 ---
  MANIFEST.in                  | 2 +-
- certifi.egg-info/SOURCES.txt | 3 +--
+ certifi.egg-info/SOURCES.txt | 4 +---
  certifi/core.py              | 2 +-
  setup.py                     | 1 -
- 4 files changed, 3 insertions(+), 5 deletions(-)
+ 4 files changed, 3 insertions(+), 6 deletions(-)
 
 diff --git a/MANIFEST.in b/MANIFEST.in
-index 6077b5ff84d2..24ad57286b32 100644
+index 25be160..bc6e3a4 100644
 --- a/MANIFEST.in
 +++ b/MANIFEST.in
-@@ -1 +1 @@
+@@ -1,4 +1,4 @@
 -include MANIFEST.in README.rst LICENSE certifi/cacert.pem certifi/py.typed
 +include MANIFEST.in README.rst LICENSE
+ 
+ exclude .github/
+ recursive-exclude .github
 diff --git a/certifi.egg-info/SOURCES.txt b/certifi.egg-info/SOURCES.txt
-index 04773eaf9fa1..f5b8172f4dfe 100644
+index 052a089..2706d5a 100644
 --- a/certifi.egg-info/SOURCES.txt
 +++ b/certifi.egg-info/SOURCES.txt
-@@ -5,11 +5,9 @@ setup.cfg
+@@ -4,11 +4,9 @@ README.rst
  setup.py
  certifi/__init__.py
  certifi/__main__.py
@@ -42,30 +45,30 @@ index 04773eaf9fa1..f5b8172f4dfe 100644
 \ No newline at end of file
 +certifi.egg-info/top_level.txt
 diff --git a/certifi/core.py b/certifi/core.py
-index 5d2b8cd32f7b..3a2151096f4c 100644
+index de02898..c28c3b0 100644
 --- a/certifi/core.py
 +++ b/certifi/core.py
-@@ -12,7 +12,7 @@ try:
-     from importlib.resources import path as get_path, read_text
+@@ -12,7 +12,7 @@ if sys.version_info >= (3, 11):
+     from importlib.resources import as_file, files
  
      _CACERT_CTX = None
 -    _CACERT_PATH = None
 +    _CACERT_PATH = '/var/cache/ca-certs/compat/ca-roots.pem'
  
-     def where():
+     def where() -> str:
          # This is slightly terrible, but we want to delay extracting the file
 diff --git a/setup.py b/setup.py
-index f6e3d103ebfe..78b3d60b0f51 100755
+index 6595dfb..6424da1 100755
 --- a/setup.py
 +++ b/setup.py
-@@ -43,7 +43,6 @@ setup(
-         'certifi',
+@@ -35,7 +35,6 @@ setup(
+         "certifi",
      ],
-     package_dir={'certifi': 'certifi'},
--    package_data={'certifi': ['*.pem', 'py.typed']},
+     package_dir={"certifi": "certifi"},
+-    package_data={"certifi": ["*.pem", "py.typed"]},
      # data_files=[('certifi', ['certifi/cacert.pem'])],
      include_package_data=True,
      zip_safe=False,
 -- 
-2.28.0
+2.43.0
 
