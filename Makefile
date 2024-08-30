@@ -1,5 +1,5 @@
 PKG_NAME := pypi-certifi
-URL = https://files.pythonhosted.org/packages/c2/02/a95f2b11e207f68bc64d7aae9666fed2e2b3f307748d5123dffb72a1bbea/certifi-2024.7.4.tar.gz
+URL = https://files.pythonhosted.org/packages/b0/ee/9b19140fe824b367c04c5e1b369942dd754c4c5462d5674002f75c4dedc1/certifi-2024.8.30.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
