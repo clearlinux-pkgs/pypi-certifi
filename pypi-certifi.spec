@@ -7,7 +7,7 @@
 #
 Name     : pypi-certifi
 Version  : 2024.8.30
-Release  : 109
+Release  : 110
 URL      : https://files.pythonhosted.org/packages/b0/ee/9b19140fe824b367c04c5e1b369942dd754c4c5462d5674002f75c4dedc1/certifi-2024.8.30.tar.gz
 Source0  : https://files.pythonhosted.org/packages/b0/ee/9b19140fe824b367c04c5e1b369942dd754c4c5462d5674002f75c4dedc1/certifi-2024.8.30.tar.gz
 Summary  : Python package for providing Mozilla's CA Bundle.
