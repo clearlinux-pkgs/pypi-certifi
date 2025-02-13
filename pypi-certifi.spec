@@ -7,7 +7,7 @@
 #
 Name     : pypi-certifi
 Version  : 2025.1.31
-Release  : 112
+Release  : 113
 URL      : https://files.pythonhosted.org/packages/1c/ab/c9f1e32b7b1bf505bf26f0ef697775960db7932abeb7b516de930ba2705f/certifi-2025.1.31.tar.gz
 Source0  : https://files.pythonhosted.org/packages/1c/ab/c9f1e32b7b1bf505bf26f0ef697775960db7932abeb7b516de930ba2705f/certifi-2025.1.31.tar.gz
 Summary  : Python package for providing Mozilla's CA Bundle.
